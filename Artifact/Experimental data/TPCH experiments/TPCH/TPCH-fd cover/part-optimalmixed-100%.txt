@@ -1,0 +1,10 @@
+[p_name, p_retailprice]
+[p_partkey]
+[p_container, p_name]
+[p_container, p_mfgr, p_retailprice, p_size, p_type]
+[p_mfgr, p_name]
+[p_brand, p_container, p_retailprice, p_size, p_type]
+[p_brand, p_name]
+[p_name, p_type]
+[p_name, p_size]
+p_brand->p_mfgr

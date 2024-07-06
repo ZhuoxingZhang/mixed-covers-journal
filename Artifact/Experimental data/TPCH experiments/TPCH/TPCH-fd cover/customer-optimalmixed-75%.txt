@@ -1,0 +1,5 @@
+[c_address]
+[c_name]
+[c_custkey]
+[c_nationkey, c_phone]
+[c_mktsegment, c_phone]

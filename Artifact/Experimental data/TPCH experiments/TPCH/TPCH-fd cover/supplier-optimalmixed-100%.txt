@@ -1,0 +1,4 @@
+[s_phone]
+[s_suppkey]
+[s_name]
+[s_address]

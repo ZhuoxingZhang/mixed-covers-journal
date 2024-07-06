@@ -1,0 +1,14 @@
+[o_custkey, o_shippriority, o_clerk, o_totalprice]
+[o_orderkey, o_shippriority]
+[o_clerk, o_orderdate, o_totalprice, o_shippriority]
+[o_custkey, o_orderpriority, o_totalprice, o_shippriority]
+[o_clerk, o_custkey, o_orderdate, o_shippriority]
+[o_custkey, o_orderdate, o_totalprice, o_shippriority]
+o_clerk,o_custkey,o_totalprice->o_orderdate
+o_orderdate,o_totalprice->o_orderstatus
+o_custkey,o_orderdate,o_totalprice->o_orderpriority
+o_clerk,o_custkey,o_orderdate->o_orderkey
+o_orderkey->o_totalprice,o_orderdate,o_orderpriority,o_clerk,o_comment
+o_clerk,o_orderdate,o_totalprice->o_custkey
+o_custkey,o_totalprice->o_orderstatus
+o_custkey,o_orderpriority,o_totalprice->o_clerk

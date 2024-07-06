@@ -1,0 +1,3 @@
+c_custkey->c_name
+c_address->c_custkey,c_nationkey,c_mktsegment,c_comment,c_acctbal
+c_name->c_phone,c_address

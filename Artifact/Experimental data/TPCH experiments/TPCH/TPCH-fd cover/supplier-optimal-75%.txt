@@ -1,0 +1,4 @@
+s_phone->s_suppkey,s_nationkey,s_address
+s_name->s_suppkey
+s_address->s_name,s_comment,s_acctbal
+s_suppkey->s_phone

@@ -1,0 +1,3 @@
+[ps_suppkey, ps_supplycost, ps_availqty]
+[ps_availqty, ps_partkey, ps_supplycost]
+[ps_partkey, ps_suppkey]

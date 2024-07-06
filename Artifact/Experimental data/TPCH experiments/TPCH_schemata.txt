@@ -1,0 +1,1040 @@
+Key Num: 0 | FD Num: 7
+table: orders
+R: [o_orderdate, o_orderkey, o_custkey, o_orderpriority, o_shippriority, o_clerk, o_orderstatus, o_totalprice, o_comment]
+FDs:
+[o_clerk, o_custkey, o_totalprice]->[o_orderpriority]
+[o_custkey, o_orderdate, o_totalprice]->[o_clerk]
+[o_clerk, o_custkey, o_orderdate]->[o_totalprice]
+[o_orderkey]->[o_totalprice, o_custkey, o_orderpriority, o_comment]
+[o_clerk, o_orderdate, o_totalprice]->[o_orderkey]
+[o_custkey, o_totalprice]->[o_orderstatus]
+[o_custkey, o_orderpriority, o_totalprice]->[o_orderdate]
+----------------------------
+
+
+Key Num: 0 | FD Num: 3
+table: customer
+R: [c_custkey, c_mktsegment, c_nationkey, c_name, c_address, c_phone, c_acctbal, c_comment]
+FDs:
+[c_custkey]->[c_name]
+[c_address]->[c_custkey, c_nationkey, c_mktsegment, c_comment, c_acctbal]
+[c_name]->[c_phone, c_address]
+----------------------------
+
+
+Key Num: 0 | FD Num: 18
+table: lineitem
+R: [l_shipdate, l_orderkey, l_discount, l_extendedprice, l_suppkey, l_quantity, l_returnflag, l_partkey, l_linestatus, l_tax, l_commitdate, l_receiptdate, l_shipmode, l_linenumber, l_shipinstruct, l_comment]
+FDs:
+[l_orderkey, l_partkey, l_shipdate, l_tax]->[l_linenumber]
+[l_partkey, l_quantity]->[l_extendedprice]
+[l_orderkey, l_partkey, l_shipdate, l_shipmode]->[l_tax]
+[l_extendedprice, l_partkey]->[l_quantity]
+[l_orderkey, l_partkey, l_shipdate, l_shipinstruct]->[l_shipmode]
+[l_shipdate]->[l_linestatus]
+[l_linenumber, l_orderkey]->[l_partkey, l_shipinstruct, l_commitdate, l_discount]
+[l_orderkey, l_partkey, l_shipdate]->[l_receiptdate, l_returnflag, l_suppkey]
+[l_extendedprice, l_orderkey, l_shipdate]->[l_linenumber]
+[l_extendedprice, l_orderkey, l_suppkey]->[l_linenumber]
+[l_commitdate, l_orderkey, l_partkey]->[l_quantity]
+[l_discount, l_orderkey, l_partkey, l_shipdate]->[l_comment, l_shipinstruct]
+[l_orderkey, l_partkey, l_shipinstruct]->[l_suppkey]
+[l_commitdate, l_extendedprice, l_orderkey]->[l_shipdate]
+[l_extendedprice, l_orderkey]->[l_linestatus]
+[l_orderkey, l_partkey, l_quantity]->[l_linenumber]
+[l_extendedprice, l_orderkey, l_receiptdate]->[l_shipdate]
+[l_orderkey, l_partkey, l_receiptdate]->[l_shipdate]
+----------------------------
+
+
+Key Num: 0 | FD Num: 2
+table: nation
+R: [n_nationkey, n_name, n_regionkey, n_comment]
+FDs:
+[n_nationkey]->[n_name, n_regionkey, n_comment]
+[n_name]->[n_nationkey]
+----------------------------
+
+
+Key Num: 0 | FD Num: 7
+table: part
+R: [p_partkey, p_type, p_size, p_brand, p_name, p_container, p_mfgr, p_retailprice, p_comment]
+FDs:
+[p_partkey]->[p_name, p_type, p_retailprice, p_mfgr, p_container, p_comment, p_brand]
+[p_container, p_name]->[p_mfgr]
+[p_mfgr, p_name]->[p_retailprice]
+[p_name, p_size]->[p_partkey]
+[p_name, p_retailprice]->[p_size]
+[p_name, p_type]->[p_size]
+[p_brand, p_name]->[p_container]
+----------------------------
+
+
+Key Num: 0 | FD Num: 3
+table: partsupp
+R: [ps_partkey, ps_suppkey, ps_supplycost, ps_availqty, ps_comment]
+FDs:
+[ps_availqty, ps_suppkey, ps_supplycost]->[ps_partkey]
+[ps_availqty, ps_partkey, ps_supplycost]->[ps_suppkey]
+[ps_partkey, ps_suppkey]->[ps_availqty, ps_supplycost, ps_comment]
+----------------------------
+
+
+Key Num: 0 | FD Num: 2
+table: region
+R: [r_regionkey, r_name, r_comment]
+FDs:
+[r_regionkey]->[r_name, r_comment]
+[r_name]->[r_regionkey]
+----------------------------
+
+
+Key Num: 0 | FD Num: 4
+table: supplier
+R: [s_suppkey, s_nationkey, s_comment, s_name, s_address, s_phone, s_acctbal]
+FDs:
+[s_phone]->[s_suppkey, s_nationkey, s_address]
+[s_name]->[s_suppkey]
+[s_address]->[s_name, s_comment, s_acctbal]
+[s_suppkey]->[s_phone]
+----------------------------
+
+
+###############################
+
+
+
+Key Num: 6 | FD Num: 7
+table: orders
+R: [o_orderdate, o_orderkey, o_custkey, o_orderpriority, o_shippriority, o_clerk, o_orderstatus, o_totalprice, o_comment]
+Keys:
+[o_custkey, o_clerk, o_totalprice, o_shippriority]
+[o_custkey, o_orderdate, o_totalprice, o_shippriority]
+[o_clerk, o_custkey, o_orderdate, o_shippriority]
+[o_orderkey, o_shippriority]
+[o_custkey, o_orderpriority, o_totalprice, o_shippriority]
+[o_clerk, o_orderdate, o_totalprice, o_shippriority]
+FDs:
+[o_custkey, o_clerk, o_totalprice]->[o_orderpriority]
+[o_custkey, o_orderdate, o_totalprice]->[o_clerk]
+[o_clerk, o_custkey, o_orderdate]->[o_totalprice]
+[o_orderkey]->[o_totalprice, o_custkey, o_orderpriority, o_comment]
+[o_clerk, o_orderdate, o_totalprice]->[o_orderkey]
+[o_custkey, o_totalprice]->[o_orderstatus]
+[o_custkey, o_orderpriority, o_totalprice]->[o_orderdate]
+----------------------------
+
+
+Key Num: 3 | FD Num: 0
+table: customer
+R: [c_custkey, c_mktsegment, c_nationkey, c_name, c_address, c_phone, c_acctbal, c_comment]
+Keys:
+[c_address]
+[c_name]
+[c_custkey]
+FDs:
+----------------------------
+
+
+Key Num: 16 | FD Num: 7
+table: lineitem
+R: [l_shipdate, l_orderkey, l_discount, l_extendedprice, l_suppkey, l_quantity, l_returnflag, l_partkey, l_linestatus, l_tax, l_commitdate, l_receiptdate, l_shipmode, l_linenumber, l_shipinstruct, l_comment]
+Keys:
+[l_orderkey, l_linenumber]
+[l_orderkey, l_partkey, l_shipdate, l_tax]
+[l_extendedprice, l_orderkey, l_shipdate]
+[l_extendedprice, l_orderkey, l_suppkey]
+[l_partkey, l_quantity, l_orderkey]
+[l_shipdate, l_orderkey, l_partkey, l_shipmode]
+[l_extendedprice, l_partkey, l_orderkey]
+[l_orderkey, l_partkey, l_receiptdate, l_tax]
+[l_commitdate, l_extendedprice, l_orderkey]
+[l_extendedprice, l_orderkey, l_receiptdate]
+[l_commitdate, l_orderkey, l_partkey]
+[l_orderkey, l_partkey, l_shipinstruct, l_shipdate]
+[l_orderkey, l_partkey, l_receiptdate, l_shipmode]
+[l_discount, l_orderkey, l_partkey, l_shipdate]
+[l_orderkey, l_partkey, l_receiptdate, l_shipinstruct]
+[l_orderkey, l_partkey, l_receiptdate, l_discount]
+FDs:
+[l_partkey, l_quantity]->[l_extendedprice]
+[l_extendedprice, l_partkey]->[l_quantity]
+[l_shipdate]->[l_linestatus]
+[l_orderkey, l_partkey, l_shipdate]->[l_receiptdate, l_returnflag, l_suppkey]
+[l_orderkey, l_partkey, l_shipinstruct]->[l_suppkey]
+[l_extendedprice, l_orderkey]->[l_linestatus]
+[l_orderkey, l_partkey, l_receiptdate]->[l_shipdate]
+----------------------------
+
+
+Key Num: 2 | FD Num: 0
+table: nation
+R: [n_nationkey, n_name, n_regionkey, n_comment]
+Keys:
+[n_name]
+[n_nationkey]
+FDs:
+----------------------------
+
+
+Key Num: 7 | FD Num: 0
+table: part
+R: [p_partkey, p_type, p_size, p_brand, p_name, p_container, p_mfgr, p_retailprice, p_comment]
+Keys:
+[p_name, p_retailprice]
+[p_partkey]
+[p_mfgr, p_name]
+[p_name, p_size]
+[p_container, p_name]
+[p_name, p_type]
+[p_brand, p_name]
+FDs:
+----------------------------
+
+
+Key Num: 3 | FD Num: 0
+table: partsupp
+R: [ps_partkey, ps_suppkey, ps_supplycost, ps_availqty, ps_comment]
+Keys:
+[ps_suppkey, ps_supplycost, ps_availqty]
+[ps_availqty, ps_partkey, ps_supplycost]
+[ps_partkey, ps_suppkey]
+FDs:
+----------------------------
+
+
+Key Num: 2 | FD Num: 0
+table: region
+R: [r_regionkey, r_name, r_comment]
+Keys:
+[r_name]
+[r_regionkey]
+FDs:
+----------------------------
+
+
+Key Num: 4 | FD Num: 0
+table: supplier
+R: [s_suppkey, s_nationkey, s_comment, s_name, s_address, s_phone, s_acctbal]
+Keys:
+[s_phone]
+[s_suppkey]
+[s_name]
+[s_address]
+FDs:
+----------------------------
+
+
+###############################
+
+
+
+Key Num: 0 | FD Num: 8
+table: orders
+R: [o_orderdate, o_orderkey, o_custkey, o_orderpriority, o_shippriority, o_clerk, o_orderstatus, o_totalprice, o_comment]
+FDs:
+[o_clerk, o_custkey, o_totalprice]->[o_orderdate]
+[o_orderdate, o_totalprice]->[o_orderstatus]
+[o_custkey, o_orderdate, o_totalprice]->[o_orderpriority]
+[o_clerk, o_custkey, o_orderdate]->[o_orderkey]
+[o_orderkey]->[o_totalprice, o_orderdate, o_orderpriority, o_clerk, o_comment]
+[o_clerk, o_orderdate, o_totalprice]->[o_custkey]
+[o_custkey, o_totalprice]->[o_orderstatus]
+[o_custkey, o_orderpriority, o_totalprice]->[o_clerk]
+----------------------------
+
+
+Key Num: 0 | FD Num: 3
+table: customer
+R: [c_custkey, c_mktsegment, c_nationkey, c_name, c_address, c_phone, c_acctbal, c_comment]
+FDs:
+[c_custkey]->[c_name]
+[c_address]->[c_custkey, c_nationkey, c_mktsegment, c_comment, c_acctbal]
+[c_name]->[c_phone, c_address]
+----------------------------
+
+
+Key Num: 0 | FD Num: 23
+table: lineitem
+R: [l_shipdate, l_orderkey, l_discount, l_extendedprice, l_suppkey, l_quantity, l_returnflag, l_partkey, l_linestatus, l_tax, l_commitdate, l_receiptdate, l_shipmode, l_linenumber, l_shipinstruct, l_comment]
+FDs:
+[l_partkey, l_quantity]->[l_extendedprice]
+[l_extendedprice, l_partkey]->[l_quantity]
+[l_orderkey, l_partkey, l_tax]->[l_linestatus, l_returnflag]
+[l_orderkey, l_shipdate, l_suppkey, l_tax]->[l_shipmode]
+[l_orderkey, l_partkey, l_shipdate, l_shipinstruct]->[l_comment, l_commitdate]
+[l_shipdate]->[l_linestatus]
+[l_linenumber, l_orderkey]->[l_partkey, l_tax, l_commitdate]
+[l_orderkey, l_partkey, l_shipdate]->[l_receiptdate, l_returnflag, l_suppkey]
+[l_extendedprice, l_orderkey, l_shipdate]->[l_suppkey]
+[l_discount, l_orderkey, l_partkey, l_tax]->[l_linenumber]
+[l_extendedprice, l_orderkey, l_suppkey]->[l_linenumber]
+[l_commitdate, l_orderkey, l_partkey]->[l_quantity]
+[l_orderkey, l_partkey, l_shipinstruct]->[l_suppkey]
+[l_discount, l_orderkey, l_partkey]->[l_linestatus, l_suppkey]
+[l_orderkey, l_partkey, l_shipmode]->[l_linestatus, l_suppkey]
+[l_orderkey, l_shipdate, l_shipmode, l_suppkey]->[l_linenumber]
+[l_commitdate, l_extendedprice, l_orderkey]->[l_shipdate]
+[l_orderkey, l_receiptdate, l_suppkey, l_tax]->[l_discount]
+[l_extendedprice, l_orderkey]->[l_linestatus]
+[l_discount, l_orderkey, l_receiptdate, l_suppkey]->[l_extendedprice]
+[l_orderkey, l_partkey, l_quantity]->[l_shipinstruct]
+[l_extendedprice, l_orderkey, l_receiptdate]->[l_commitdate]
+[l_orderkey, l_partkey, l_receiptdate]->[l_shipdate]
+----------------------------
+
+
+Key Num: 0 | FD Num: 2
+table: nation
+R: [n_nationkey, n_name, n_regionkey, n_comment]
+FDs:
+[n_nationkey]->[n_name, n_regionkey, n_comment]
+[n_name]->[n_nationkey]
+----------------------------
+
+
+Key Num: 0 | FD Num: 7
+table: part
+R: [p_partkey, p_type, p_size, p_brand, p_name, p_container, p_mfgr, p_retailprice, p_comment]
+FDs:
+[p_partkey]->[p_name, p_type, p_retailprice, p_mfgr, p_container, p_comment, p_brand]
+[p_container, p_name]->[p_mfgr]
+[p_mfgr, p_name]->[p_retailprice]
+[p_name, p_size]->[p_partkey]
+[p_name, p_retailprice]->[p_size]
+[p_name, p_type]->[p_size]
+[p_brand, p_name]->[p_container]
+----------------------------
+
+
+Key Num: 0 | FD Num: 3
+table: partsupp
+R: [ps_partkey, ps_suppkey, ps_supplycost, ps_availqty, ps_comment]
+FDs:
+[ps_availqty, ps_suppkey, ps_supplycost]->[ps_partkey]
+[ps_availqty, ps_partkey, ps_supplycost]->[ps_suppkey]
+[ps_partkey, ps_suppkey]->[ps_availqty, ps_supplycost, ps_comment]
+----------------------------
+
+
+Key Num: 0 | FD Num: 2
+table: region
+R: [r_regionkey, r_name, r_comment]
+FDs:
+[r_regionkey]->[r_name, r_comment]
+[r_name]->[r_regionkey]
+----------------------------
+
+
+Key Num: 0 | FD Num: 4
+table: supplier
+R: [s_suppkey, s_nationkey, s_comment, s_name, s_address, s_phone, s_acctbal]
+FDs:
+[s_phone]->[s_suppkey, s_nationkey, s_address]
+[s_name]->[s_suppkey]
+[s_address]->[s_name, s_comment, s_acctbal]
+[s_suppkey]->[s_phone]
+----------------------------
+
+
+###############################
+
+
+
+Key Num: 6 | FD Num: 8
+table: orders
+R: [o_orderdate, o_orderkey, o_custkey, o_orderpriority, o_shippriority, o_clerk, o_orderstatus, o_totalprice, o_comment]
+Keys:
+[o_custkey, o_clerk, o_totalprice, o_shippriority]
+[o_orderkey, o_shippriority]
+[o_clerk, o_orderdate, o_totalprice, o_shippriority]
+[o_custkey, o_orderpriority, o_totalprice, o_shippriority]
+[o_clerk, o_custkey, o_orderdate, o_shippriority]
+[o_custkey, o_orderdate, o_totalprice, o_shippriority]
+FDs:
+[o_custkey, o_clerk, o_totalprice]->[o_orderdate]
+[o_orderdate, o_totalprice]->[o_orderstatus]
+[o_custkey, o_orderdate, o_totalprice]->[o_orderpriority]
+[o_clerk, o_custkey, o_orderdate]->[o_orderkey]
+[o_orderkey]->[o_totalprice, o_orderdate, o_orderpriority, o_clerk, o_comment]
+[o_clerk, o_orderdate, o_totalprice]->[o_custkey]
+[o_custkey, o_totalprice]->[o_orderstatus]
+[o_custkey, o_orderpriority, o_totalprice]->[o_clerk]
+----------------------------
+
+
+Key Num: 3 | FD Num: 0
+table: customer
+R: [c_custkey, c_mktsegment, c_nationkey, c_name, c_address, c_phone, c_acctbal, c_comment]
+Keys:
+[c_address]
+[c_name]
+[c_custkey]
+FDs:
+----------------------------
+
+
+Key Num: 21 | FD Num: 10
+table: lineitem
+R: [l_shipdate, l_orderkey, l_discount, l_extendedprice, l_suppkey, l_quantity, l_returnflag, l_partkey, l_linestatus, l_tax, l_commitdate, l_receiptdate, l_shipmode, l_linenumber, l_shipinstruct, l_comment]
+Keys:
+[l_orderkey, l_linenumber]
+[l_orderkey, l_partkey, l_tax, l_discount]
+[l_extendedprice, l_orderkey, l_suppkey]
+[l_shipdate, l_orderkey, l_shipmode, l_suppkey]
+[l_orderkey, l_receiptdate, l_partkey, l_tax]
+[l_partkey, l_quantity, l_orderkey]
+[l_orderkey, l_shipdate, l_extendedprice]
+[l_partkey, l_extendedprice, l_orderkey]
+[l_discount, l_orderkey, l_receiptdate, l_suppkey]
+[l_orderkey, l_shipdate, l_suppkey, l_tax]
+[l_orderkey, l_partkey, l_shipdate, l_shipmode]
+[l_orderkey, l_partkey, l_shipmode, l_receiptdate]
+[l_orderkey, l_partkey, l_shipdate, l_tax]
+[l_commitdate, l_orderkey, l_partkey]
+[l_commitdate, l_extendedprice, l_orderkey]
+[l_orderkey, l_partkey, l_discount, l_shipdate]
+[l_orderkey, l_partkey, l_discount, l_receiptdate]
+[l_orderkey, l_receiptdate, l_suppkey, l_tax]
+[l_orderkey, l_partkey, l_shipinstruct, l_shipdate]
+[l_extendedprice, l_orderkey, l_receiptdate]
+[l_orderkey, l_partkey, l_receiptdate, l_shipinstruct]
+FDs:
+[l_partkey, l_quantity]->[l_extendedprice]
+[l_partkey, l_extendedprice]->[l_quantity]
+[l_orderkey, l_partkey, l_tax]->[l_linestatus, l_returnflag]
+[l_shipdate]->[l_linestatus]
+[l_orderkey, l_partkey, l_shipdate]->[l_receiptdate, l_returnflag, l_suppkey]
+[l_orderkey, l_partkey, l_shipinstruct]->[l_suppkey]
+[l_orderkey, l_partkey, l_discount]->[l_linestatus, l_suppkey]
+[l_orderkey, l_partkey, l_shipmode]->[l_linestatus, l_suppkey]
+[l_extendedprice, l_orderkey]->[l_linestatus]
+[l_orderkey, l_receiptdate, l_partkey]->[l_shipdate]
+----------------------------
+
+
+Key Num: 2 | FD Num: 0
+table: nation
+R: [n_nationkey, n_name, n_regionkey, n_comment]
+Keys:
+[n_name]
+[n_nationkey]
+FDs:
+----------------------------
+
+
+Key Num: 7 | FD Num: 0
+table: part
+R: [p_partkey, p_type, p_size, p_brand, p_name, p_container, p_mfgr, p_retailprice, p_comment]
+Keys:
+[p_name, p_retailprice]
+[p_partkey]
+[p_mfgr, p_name]
+[p_name, p_size]
+[p_container, p_name]
+[p_name, p_type]
+[p_brand, p_name]
+FDs:
+----------------------------
+
+
+Key Num: 3 | FD Num: 0
+table: partsupp
+R: [ps_partkey, ps_suppkey, ps_supplycost, ps_availqty, ps_comment]
+Keys:
+[ps_suppkey, ps_supplycost, ps_availqty]
+[ps_availqty, ps_partkey, ps_supplycost]
+[ps_partkey, ps_suppkey]
+FDs:
+----------------------------
+
+
+Key Num: 2 | FD Num: 0
+table: region
+R: [r_regionkey, r_name, r_comment]
+Keys:
+[r_name]
+[r_regionkey]
+FDs:
+----------------------------
+
+
+Key Num: 4 | FD Num: 0
+table: supplier
+R: [s_suppkey, s_nationkey, s_comment, s_name, s_address, s_phone, s_acctbal]
+Keys:
+[s_phone]
+[s_suppkey]
+[s_name]
+[s_address]
+FDs:
+----------------------------
+
+
+###############################
+
+
+
+Key Num: 0 | FD Num: 8
+table: orders
+R: [o_orderdate, o_orderkey, o_custkey, o_orderpriority, o_shippriority, o_clerk, o_orderstatus, o_totalprice, o_comment]
+FDs:
+[o_clerk, o_custkey, o_totalprice]->[o_orderdate]
+[o_orderdate, o_totalprice]->[o_orderstatus]
+[o_custkey, o_orderdate, o_totalprice]->[o_orderpriority]
+[o_clerk, o_custkey, o_orderdate]->[o_orderkey]
+[o_orderkey]->[o_totalprice, o_orderdate, o_orderpriority, o_clerk, o_comment]
+[o_clerk, o_orderdate, o_totalprice]->[o_custkey]
+[o_custkey, o_totalprice]->[o_orderstatus]
+[o_custkey, o_orderpriority, o_totalprice]->[o_clerk]
+----------------------------
+
+
+Key Num: 0 | FD Num: 5
+table: customer
+R: [c_custkey, c_mktsegment, c_nationkey, c_name, c_address, c_phone, c_acctbal, c_comment]
+FDs:
+[c_custkey]->[c_name]
+[c_nationkey, c_phone]->[c_name]
+[c_mktsegment, c_phone]->[c_nationkey]
+[c_address]->[c_custkey, c_nationkey, c_mktsegment, c_comment, c_acctbal]
+[c_name]->[c_phone, c_address]
+----------------------------
+
+
+Key Num: 0 | FD Num: 36
+table: lineitem
+R: [l_shipdate, l_orderkey, l_discount, l_extendedprice, l_suppkey, l_quantity, l_returnflag, l_partkey, l_linestatus, l_tax, l_commitdate, l_receiptdate, l_shipmode, l_linenumber, l_shipinstruct, l_comment]
+FDs:
+[l_partkey, l_quantity]->[l_extendedprice]
+[l_extendedprice, l_partkey]->[l_quantity]
+[l_orderkey, l_receiptdate, l_suppkey]->[l_returnflag]
+[l_orderkey, l_shipdate, l_shipinstruct, l_suppkey]->[l_shipmode]
+[l_shipdate]->[l_linestatus]
+[l_linenumber, l_orderkey]->[l_partkey, l_discount, l_receiptdate, l_comment]
+[l_extendedprice, l_orderkey, l_shipdate]->[l_linenumber]
+[l_commitdate, l_extendedprice, l_suppkey]->[l_quantity]
+[l_commitdate, l_orderkey, l_shipdate, l_suppkey]->[l_receiptdate]
+[l_commitdate, l_orderkey, l_receiptdate, l_suppkey]->[l_tax]
+[l_orderkey, l_partkey, l_shipinstruct]->[l_suppkey]
+[l_discount, l_extendedprice, l_orderkey]->[l_tax]
+[l_orderkey, l_shipdate, l_shipmode, l_suppkey]->[l_extendedprice]
+[l_commitdate, l_orderkey, l_suppkey]->[l_linestatus]
+[l_commitdate, l_extendedprice, l_orderkey]->[l_shipdate]
+[l_discount, l_orderkey, l_receiptdate, l_suppkey]->[l_extendedprice]
+[l_orderkey, l_partkey, l_quantity]->[l_linenumber]
+[l_orderkey, l_partkey, l_receiptdate]->[l_shipdate]
+[l_extendedprice, l_receiptdate, l_suppkey]->[l_quantity]
+[l_commitdate, l_orderkey, l_quantity, l_suppkey]->[l_tax]
+[l_orderkey, l_partkey, l_tax]->[l_linestatus, l_returnflag]
+[l_orderkey, l_shipdate, l_suppkey, l_tax]->[l_extendedprice]
+[l_orderkey, l_partkey, l_shipdate]->[l_receiptdate, l_suppkey]
+[l_discount, l_orderkey, l_partkey, l_tax]->[l_linenumber]
+[l_extendedprice, l_orderkey, l_suppkey]->[l_commitdate]
+[l_orderkey, l_quantity, l_suppkey]->[l_linestatus]
+[l_commitdate, l_orderkey, l_partkey]->[l_linenumber]
+[l_orderkey, l_quantity, l_receiptdate, l_suppkey]->[l_shipdate]
+[l_discount, l_orderkey, l_partkey]->[l_linestatus, l_suppkey]
+[l_orderkey, l_partkey, l_shipmode]->[l_linestatus, l_suppkey]
+[l_orderkey, l_quantity, l_suppkey, l_tax]->[l_shipdate]
+[l_orderkey, l_receiptdate, l_suppkey, l_tax]->[l_discount]
+[l_orderkey, l_quantity, l_shipdate, l_suppkey]->[l_shipinstruct]
+[l_extendedprice, l_orderkey]->[l_linestatus]
+[l_commitdate, l_discount, l_orderkey, l_suppkey]->[l_extendedprice]
+[l_extendedprice, l_orderkey, l_receiptdate]->[l_shipdate]
+----------------------------
+
+
+Key Num: 0 | FD Num: 2
+table: nation
+R: [n_nationkey, n_name, n_regionkey, n_comment]
+FDs:
+[n_nationkey]->[n_name, n_regionkey, n_comment]
+[n_name]->[n_nationkey]
+----------------------------
+
+
+Key Num: 0 | FD Num: 7
+table: part
+R: [p_partkey, p_type, p_size, p_brand, p_name, p_container, p_mfgr, p_retailprice, p_comment]
+FDs:
+[p_partkey]->[p_name, p_brand, p_type, p_size, p_retailprice, p_container, p_comment]
+[p_container, p_name]->[p_retailprice]
+[p_mfgr, p_name]->[p_partkey]
+[p_name, p_size]->[p_type]
+[p_brand]->[p_mfgr]
+[p_name, p_retailprice]->[p_size]
+[p_name, p_type]->[p_mfgr]
+----------------------------
+
+
+Key Num: 0 | FD Num: 3
+table: partsupp
+R: [ps_partkey, ps_suppkey, ps_supplycost, ps_availqty, ps_comment]
+FDs:
+[ps_availqty, ps_suppkey, ps_supplycost]->[ps_partkey]
+[ps_availqty, ps_partkey, ps_supplycost]->[ps_suppkey]
+[ps_partkey, ps_suppkey]->[ps_availqty, ps_supplycost, ps_comment]
+----------------------------
+
+
+Key Num: 0 | FD Num: 2
+table: region
+R: [r_regionkey, r_name, r_comment]
+FDs:
+[r_regionkey]->[r_name, r_comment]
+[r_name]->[r_regionkey]
+----------------------------
+
+
+Key Num: 0 | FD Num: 4
+table: supplier
+R: [s_suppkey, s_nationkey, s_comment, s_name, s_address, s_phone, s_acctbal]
+FDs:
+[s_phone]->[s_suppkey, s_nationkey, s_address]
+[s_name]->[s_suppkey]
+[s_address]->[s_name, s_comment, s_acctbal]
+[s_suppkey]->[s_phone]
+----------------------------
+
+
+###############################
+
+
+
+Key Num: 6 | FD Num: 8
+table: orders
+R: [o_orderdate, o_orderkey, o_custkey, o_orderpriority, o_shippriority, o_clerk, o_orderstatus, o_totalprice, o_comment]
+Keys:
+[o_custkey, o_clerk, o_totalprice, o_shippriority]
+[o_orderkey, o_shippriority]
+[o_clerk, o_orderdate, o_totalprice, o_shippriority]
+[o_custkey, o_orderpriority, o_totalprice, o_shippriority]
+[o_clerk, o_custkey, o_orderdate, o_shippriority]
+[o_custkey, o_orderdate, o_totalprice, o_shippriority]
+FDs:
+[o_custkey, o_clerk, o_totalprice]->[o_orderdate]
+[o_orderdate, o_totalprice]->[o_orderstatus]
+[o_custkey, o_orderdate, o_totalprice]->[o_orderpriority]
+[o_clerk, o_custkey, o_orderdate]->[o_orderkey]
+[o_orderkey]->[o_totalprice, o_orderdate, o_orderpriority, o_clerk, o_comment]
+[o_clerk, o_orderdate, o_totalprice]->[o_custkey]
+[o_custkey, o_totalprice]->[o_orderstatus]
+[o_custkey, o_orderpriority, o_totalprice]->[o_clerk]
+----------------------------
+
+
+Key Num: 5 | FD Num: 0
+table: customer
+R: [c_custkey, c_mktsegment, c_nationkey, c_name, c_address, c_phone, c_acctbal, c_comment]
+Keys:
+[c_address]
+[c_name]
+[c_custkey]
+[c_nationkey, c_phone]
+[c_mktsegment, c_phone]
+FDs:
+----------------------------
+
+
+Key Num: 29 | FD Num: 16
+table: lineitem
+R: [l_shipdate, l_orderkey, l_discount, l_extendedprice, l_suppkey, l_quantity, l_returnflag, l_partkey, l_linestatus, l_tax, l_commitdate, l_receiptdate, l_shipmode, l_linenumber, l_shipinstruct, l_comment]
+Keys:
+[l_orderkey, l_linenumber]
+[l_extendedprice, l_orderkey, l_shipdate]
+[l_partkey, l_quantity, l_orderkey]
+[l_orderkey, l_partkey, l_tax, l_discount]
+[l_commitdate, l_orderkey, l_partkey]
+[l_shipdate, l_orderkey, l_shipmode, l_suppkey]
+[l_commitdate, l_extendedprice, l_orderkey]
+[l_orderkey, l_receiptdate, l_suppkey, l_discount]
+[l_receiptdate, l_extendedprice, l_orderkey]
+[l_orderkey, l_shipdate, l_suppkey, l_tax]
+[l_orderkey, l_extendedprice, l_suppkey]
+[l_commitdate, l_orderkey, l_suppkey, l_shipdate]
+[l_extendedprice, l_partkey, l_orderkey]
+[l_orderkey, l_receiptdate, l_partkey, l_tax]
+[l_orderkey, l_shipdate, l_shipinstruct, l_suppkey]
+[l_orderkey, l_partkey, l_shipdate, l_shipmode]
+[l_orderkey, l_partkey, l_shipmode, l_receiptdate]
+[l_orderkey, l_quantity, l_suppkey, l_receiptdate]
+[l_orderkey, l_quantity, l_suppkey, l_tax]
+[l_commitdate, l_discount, l_orderkey, l_suppkey]
+[l_orderkey, l_partkey, l_discount, l_receiptdate]
+[l_orderkey, l_partkey, l_shipdate, l_discount]
+[l_orderkey, l_receiptdate, l_suppkey, l_tax]
+[l_orderkey, l_partkey, l_shipdate, l_tax]
+[l_orderkey, l_partkey, l_shipinstruct, l_shipdate]
+[l_orderkey, l_partkey, l_receiptdate, l_shipinstruct]
+[l_orderkey, l_quantity, l_shipdate, l_suppkey]
+[l_commitdate, l_orderkey, l_quantity, l_suppkey]
+[l_commitdate, l_orderkey, l_receiptdate, l_suppkey]
+FDs:
+[l_partkey, l_quantity]->[l_extendedprice]
+[l_extendedprice, l_partkey]->[l_quantity]
+[l_orderkey, l_receiptdate, l_suppkey]->[l_returnflag]
+[l_shipdate]->[l_linestatus]
+[l_commitdate, l_extendedprice, l_suppkey]->[l_quantity]
+[l_orderkey, l_partkey, l_shipinstruct]->[l_suppkey]
+[l_extendedprice, l_orderkey, l_discount]->[l_tax]
+[l_commitdate, l_orderkey, l_suppkey]->[l_linestatus]
+[l_orderkey, l_receiptdate, l_partkey]->[l_shipdate]
+[l_receiptdate, l_extendedprice, l_suppkey]->[l_quantity]
+[l_orderkey, l_partkey, l_tax]->[l_linestatus, l_returnflag]
+[l_orderkey, l_partkey, l_shipdate]->[l_receiptdate, l_suppkey]
+[l_orderkey, l_quantity, l_suppkey]->[l_linestatus]
+[l_orderkey, l_partkey, l_discount]->[l_linestatus, l_suppkey]
+[l_orderkey, l_partkey, l_shipmode]->[l_linestatus, l_suppkey]
+[l_orderkey, l_extendedprice]->[l_linestatus]
+----------------------------
+
+
+Key Num: 2 | FD Num: 0
+table: nation
+R: [n_nationkey, n_name, n_regionkey, n_comment]
+Keys:
+[n_name]
+[n_nationkey]
+FDs:
+----------------------------
+
+
+Key Num: 7 | FD Num: 1
+table: part
+R: [p_partkey, p_type, p_size, p_brand, p_name, p_container, p_mfgr, p_retailprice, p_comment]
+Keys:
+[p_name, p_retailprice]
+[p_partkey]
+[p_container, p_name]
+[p_mfgr, p_name]
+[p_brand, p_name]
+[p_name, p_type]
+[p_name, p_size]
+FDs:
+[p_brand]->[p_mfgr]
+----------------------------
+
+
+Key Num: 3 | FD Num: 0
+table: partsupp
+R: [ps_partkey, ps_suppkey, ps_supplycost, ps_availqty, ps_comment]
+Keys:
+[ps_suppkey, ps_supplycost, ps_availqty]
+[ps_availqty, ps_partkey, ps_supplycost]
+[ps_partkey, ps_suppkey]
+FDs:
+----------------------------
+
+
+Key Num: 2 | FD Num: 0
+table: region
+R: [r_regionkey, r_name, r_comment]
+Keys:
+[r_name]
+[r_regionkey]
+FDs:
+----------------------------
+
+
+Key Num: 4 | FD Num: 0
+table: supplier
+R: [s_suppkey, s_nationkey, s_comment, s_name, s_address, s_phone, s_acctbal]
+Keys:
+[s_phone]
+[s_suppkey]
+[s_name]
+[s_address]
+FDs:
+----------------------------
+
+
+###############################
+
+
+
+Key Num: 0 | FD Num: 8
+table: orders
+R: [o_orderdate, o_orderkey, o_custkey, o_orderpriority, o_shippriority, o_clerk, o_orderstatus, o_totalprice, o_comment]
+FDs:
+[o_clerk, o_custkey, o_totalprice]->[o_orderdate]
+[o_orderdate, o_totalprice]->[o_orderstatus]
+[o_custkey, o_orderdate, o_totalprice]->[o_orderpriority]
+[o_clerk, o_custkey, o_orderdate]->[o_orderkey]
+[o_orderkey]->[o_totalprice, o_orderdate, o_orderpriority, o_clerk, o_comment]
+[o_clerk, o_orderdate, o_totalprice]->[o_custkey]
+[o_custkey, o_totalprice]->[o_orderstatus]
+[o_custkey, o_orderpriority, o_totalprice]->[o_clerk]
+----------------------------
+
+
+Key Num: 0 | FD Num: 5
+table: customer
+R: [c_custkey, c_mktsegment, c_nationkey, c_name, c_address, c_phone, c_acctbal, c_comment]
+FDs:
+[c_custkey]->[c_name]
+[c_nationkey, c_phone]->[c_name]
+[c_mktsegment, c_phone]->[c_nationkey]
+[c_address]->[c_custkey, c_nationkey, c_mktsegment, c_comment, c_acctbal]
+[c_name]->[c_phone, c_address]
+----------------------------
+
+
+Key Num: 0 | FD Num: 38
+table: lineitem
+R: [l_shipdate, l_orderkey, l_discount, l_extendedprice, l_suppkey, l_quantity, l_returnflag, l_partkey, l_linestatus, l_tax, l_commitdate, l_receiptdate, l_shipmode, l_linenumber, l_shipinstruct, l_comment]
+FDs:
+[l_extendedprice, l_orderkey, l_tax]->[l_quantity]
+[l_partkey, l_quantity]->[l_extendedprice]
+[l_extendedprice, l_partkey]->[l_quantity]
+[l_orderkey, l_receiptdate, l_suppkey]->[l_returnflag]
+[l_orderkey, l_shipdate, l_shipinstruct, l_suppkey]->[l_shipmode]
+[l_shipdate]->[l_linestatus]
+[l_linenumber, l_orderkey]->[l_partkey, l_discount, l_receiptdate, l_comment]
+[l_extendedprice, l_orderkey, l_shipdate]->[l_commitdate]
+[l_commitdate, l_extendedprice, l_suppkey]->[l_quantity]
+[l_commitdate, l_orderkey, l_shipdate, l_suppkey]->[l_receiptdate]
+[l_commitdate, l_orderkey, l_receiptdate, l_suppkey]->[l_quantity]
+[l_orderkey, l_partkey, l_shipinstruct]->[l_suppkey]
+[l_discount, l_extendedprice, l_orderkey]->[l_tax]
+[l_orderkey, l_shipdate, l_shipmode, l_suppkey]->[l_extendedprice]
+[l_commitdate, l_orderkey, l_suppkey]->[l_linestatus]
+[l_commitdate, l_extendedprice, l_orderkey]->[l_linenumber]
+[l_discount, l_orderkey, l_receiptdate, l_suppkey]->[l_tax]
+[l_orderkey, l_partkey, l_quantity]->[l_suppkey]
+[l_orderkey, l_partkey, l_receiptdate]->[l_shipdate]
+[l_extendedprice, l_receiptdate, l_suppkey]->[l_quantity]
+[l_commitdate, l_orderkey, l_quantity, l_suppkey]->[l_discount]
+[l_orderkey, l_partkey, l_tax]->[l_linestatus, l_returnflag]
+[l_orderkey, l_shipdate, l_suppkey, l_tax]->[l_shipinstruct]
+[l_orderkey, l_partkey, l_shipdate]->[l_receiptdate, l_suppkey]
+[l_discount, l_orderkey, l_partkey, l_tax]->[l_linenumber]
+[l_extendedprice, l_orderkey, l_suppkey]->[l_receiptdate]
+[l_orderkey, l_quantity, l_suppkey]->[l_linestatus]
+[l_commitdate, l_orderkey, l_partkey]->[l_discount]
+[l_orderkey, l_quantity, l_receiptdate, l_suppkey]->[l_shipdate]
+[l_discount, l_orderkey, l_partkey]->[l_linestatus, l_suppkey]
+[l_orderkey, l_partkey, l_shipmode]->[l_linestatus, l_suppkey]
+[l_orderkey, l_quantity, l_suppkey, l_tax]->[l_linenumber]
+[l_extendedprice, l_shipdate, l_suppkey]->[l_quantity]
+[l_orderkey, l_receiptdate, l_suppkey, l_tax]->[l_quantity]
+[l_orderkey, l_quantity, l_shipdate, l_suppkey]->[l_commitdate]
+[l_extendedprice, l_orderkey]->[l_linestatus]
+[l_commitdate, l_discount, l_orderkey, l_suppkey]->[l_extendedprice]
+[l_extendedprice, l_orderkey, l_receiptdate]->[l_shipdate]
+----------------------------
+
+
+Key Num: 0 | FD Num: 2
+table: nation
+R: [n_nationkey, n_name, n_regionkey, n_comment]
+FDs:
+[n_nationkey]->[n_name, n_regionkey, n_comment]
+[n_name]->[n_nationkey]
+----------------------------
+
+
+Key Num: 0 | FD Num: 8
+table: part
+R: [p_partkey, p_type, p_size, p_brand, p_name, p_container, p_mfgr, p_retailprice, p_comment]
+FDs:
+[p_partkey]->[p_brand, p_type, p_size, p_retailprice, p_container, p_comment]
+[p_container, p_name]->[p_retailprice]
+[p_mfgr, p_name]->[p_partkey]
+[p_name, p_size]->[p_type]
+[p_brand]->[p_mfgr]
+[p_name, p_retailprice]->[p_size]
+[p_name, p_type]->[p_mfgr]
+[p_container, p_mfgr, p_retailprice, p_size, p_type]->[p_name]
+----------------------------
+
+
+Key Num: 0 | FD Num: 3
+table: partsupp
+R: [ps_partkey, ps_suppkey, ps_supplycost, ps_availqty, ps_comment]
+FDs:
+[ps_availqty, ps_suppkey, ps_supplycost]->[ps_partkey]
+[ps_availqty, ps_partkey, ps_supplycost]->[ps_suppkey]
+[ps_partkey, ps_suppkey]->[ps_availqty, ps_supplycost, ps_comment]
+----------------------------
+
+
+Key Num: 0 | FD Num: 2
+table: region
+R: [r_regionkey, r_name, r_comment]
+FDs:
+[r_regionkey]->[r_name, r_comment]
+[r_name]->[r_regionkey]
+----------------------------
+
+
+Key Num: 0 | FD Num: 4
+table: supplier
+R: [s_suppkey, s_nationkey, s_comment, s_name, s_address, s_phone, s_acctbal]
+FDs:
+[s_phone]->[s_suppkey, s_nationkey, s_address]
+[s_name]->[s_suppkey]
+[s_address]->[s_name, s_comment, s_acctbal]
+[s_suppkey]->[s_phone]
+----------------------------
+
+
+###############################
+
+
+
+Key Num: 6 | FD Num: 8
+table: orders
+R: [o_orderdate, o_orderkey, o_custkey, o_orderpriority, o_shippriority, o_clerk, o_orderstatus, o_totalprice, o_comment]
+Keys:
+[o_custkey, o_clerk, o_totalprice, o_shippriority]
+[o_orderkey, o_shippriority]
+[o_clerk, o_orderdate, o_totalprice, o_shippriority]
+[o_custkey, o_orderpriority, o_totalprice, o_shippriority]
+[o_clerk, o_custkey, o_orderdate, o_shippriority]
+[o_custkey, o_orderdate, o_totalprice, o_shippriority]
+FDs:
+[o_custkey, o_clerk, o_totalprice]->[o_orderdate]
+[o_orderdate, o_totalprice]->[o_orderstatus]
+[o_custkey, o_orderdate, o_totalprice]->[o_orderpriority]
+[o_clerk, o_custkey, o_orderdate]->[o_orderkey]
+[o_orderkey]->[o_totalprice, o_orderdate, o_orderpriority, o_clerk, o_comment]
+[o_clerk, o_orderdate, o_totalprice]->[o_custkey]
+[o_custkey, o_totalprice]->[o_orderstatus]
+[o_custkey, o_orderpriority, o_totalprice]->[o_clerk]
+----------------------------
+
+
+Key Num: 5 | FD Num: 0
+table: customer
+R: [c_custkey, c_mktsegment, c_nationkey, c_name, c_address, c_phone, c_acctbal, c_comment]
+Keys:
+[c_address]
+[c_name]
+[c_custkey]
+[c_nationkey, c_phone]
+[c_mktsegment, c_phone]
+FDs:
+----------------------------
+
+
+Key Num: 29 | FD Num: 18
+table: lineitem
+R: [l_shipdate, l_orderkey, l_discount, l_extendedprice, l_suppkey, l_quantity, l_returnflag, l_partkey, l_linestatus, l_tax, l_commitdate, l_receiptdate, l_shipmode, l_linenumber, l_shipinstruct, l_comment]
+Keys:
+[l_orderkey, l_linenumber]
+[l_extendedprice, l_orderkey, l_commitdate]
+[l_orderkey, l_partkey, l_tax, l_discount]
+[l_orderkey, l_quantity, l_suppkey, l_tax]
+[l_partkey, l_orderkey, l_commitdate]
+[l_extendedprice, l_orderkey, l_shipdate]
+[l_orderkey, l_suppkey, l_commitdate, l_shipdate]
+[l_commitdate, l_suppkey, l_discount, l_orderkey]
+[l_extendedprice, l_partkey, l_orderkey]
+[l_orderkey, l_receiptdate, l_partkey, l_discount]
+[l_extendedprice, l_suppkey, l_orderkey]
+[l_orderkey, l_receiptdate, l_suppkey, l_tax]
+[l_partkey, l_quantity, l_orderkey]
+[l_orderkey, l_receiptdate, l_suppkey, l_quantity]
+[l_shipdate, l_suppkey, l_orderkey, l_shipmode]
+[l_extendedprice, l_orderkey, l_receiptdate]
+[l_shipdate, l_orderkey, l_quantity, l_suppkey]
+[l_commitdate, l_orderkey, l_quantity, l_suppkey]
+[l_orderkey, l_partkey, l_shipdate, l_discount]
+[l_orderkey, l_partkey, l_receiptdate, l_tax]
+[l_discount, l_orderkey, l_receiptdate, l_suppkey]
+[l_orderkey, l_partkey, l_shipdate, l_tax]
+[l_commitdate, l_orderkey, l_receiptdate, l_suppkey]
+[l_orderkey, l_shipdate, l_shipinstruct, l_suppkey]
+[l_orderkey, l_partkey, l_shipmode, l_shipdate]
+[l_orderkey, l_partkey, l_receiptdate, l_shipmode]
+[l_orderkey, l_partkey, l_shipinstruct, l_shipdate]
+[l_orderkey, l_partkey, l_receiptdate, l_shipinstruct]
+[l_orderkey, l_shipdate, l_suppkey, l_tax]
+FDs:
+[l_extendedprice, l_orderkey, l_tax]->[l_quantity]
+[l_partkey, l_quantity]->[l_extendedprice]
+[l_extendedprice, l_partkey]->[l_quantity]
+[l_orderkey, l_receiptdate, l_suppkey]->[l_returnflag]
+[l_shipdate]->[l_linestatus]
+[l_commitdate, l_suppkey, l_extendedprice]->[l_quantity]
+[l_orderkey, l_partkey, l_shipinstruct]->[l_suppkey]
+[l_extendedprice, l_orderkey, l_discount]->[l_tax]
+[l_orderkey, l_suppkey, l_commitdate]->[l_linestatus]
+[l_orderkey, l_receiptdate, l_partkey]->[l_shipdate]
+[l_extendedprice, l_suppkey, l_receiptdate]->[l_quantity]
+[l_orderkey, l_partkey, l_tax]->[l_linestatus, l_returnflag]
+[l_orderkey, l_partkey, l_shipdate]->[l_receiptdate, l_suppkey]
+[l_orderkey, l_quantity, l_suppkey]->[l_linestatus]
+[l_partkey, l_orderkey, l_discount]->[l_linestatus, l_suppkey]
+[l_orderkey, l_partkey, l_shipmode]->[l_linestatus, l_suppkey]
+[l_shipdate, l_suppkey, l_extendedprice]->[l_quantity]
+[l_extendedprice, l_orderkey]->[l_linestatus]
+----------------------------
+
+
+Key Num: 2 | FD Num: 0
+table: nation
+R: [n_nationkey, n_name, n_regionkey, n_comment]
+Keys:
+[n_name]
+[n_nationkey]
+FDs:
+----------------------------
+
+
+Key Num: 9 | FD Num: 1
+table: part
+R: [p_partkey, p_type, p_size, p_brand, p_name, p_container, p_mfgr, p_retailprice, p_comment]
+Keys:
+[p_name, p_retailprice]
+[p_partkey]
+[p_container, p_name]
+[p_container, p_mfgr, p_retailprice, p_size, p_type]
+[p_mfgr, p_name]
+[p_brand, p_container, p_retailprice, p_size, p_type]
+[p_brand, p_name]
+[p_name, p_type]
+[p_name, p_size]
+FDs:
+[p_brand]->[p_mfgr]
+----------------------------
+
+
+Key Num: 3 | FD Num: 0
+table: partsupp
+R: [ps_partkey, ps_suppkey, ps_supplycost, ps_availqty, ps_comment]
+Keys:
+[ps_suppkey, ps_supplycost, ps_availqty]
+[ps_availqty, ps_partkey, ps_supplycost]
+[ps_partkey, ps_suppkey]
+FDs:
+----------------------------
+
+
+Key Num: 2 | FD Num: 0
+table: region
+R: [r_regionkey, r_name, r_comment]
+Keys:
+[r_name]
+[r_regionkey]
+FDs:
+----------------------------
+
+
+Key Num: 4 | FD Num: 0
+table: supplier
+R: [s_suppkey, s_nationkey, s_comment, s_name, s_address, s_phone, s_acctbal]
+Keys:
+[s_phone]
+[s_suppkey]
+[s_name]
+[s_address]
+FDs:
+----------------------------
+
+
+###############################
+
+
+

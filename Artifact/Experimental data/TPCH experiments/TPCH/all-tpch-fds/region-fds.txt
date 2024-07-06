@@ -1,0 +1,6 @@
+r_regionkey->r_name
+r_regionkey->r_comment
+r_name->r_regionkey
+r_name->r_comment
+r_comment->r_regionkey
+r_comment->r_name
