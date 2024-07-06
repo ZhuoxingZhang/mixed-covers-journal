@@ -10,18 +10,15 @@
 >> Our code was developed in JAVA. Accordingly, please specify a JDK with version 8 or later. At the moment, we are using JDBC (version 8.0.26) as a connector to MySQL databases.
 # Experiments
 Our experiments are organized into seven sections. For each of them, you can run different code/scripts:
-> 0. What savings do notions of FD and mixed covers offer?
+> 1. What savings do notions of FD and mixed covers offer?
 >> In this experiment, we compute several FD covers with given FDs as input. These FD covers include non-redundant, reduced, canonical, minimal, minimal-reduced, and optimal covers. In addition, we keep some statistics for each of these FD covers. You can run the code at <kbd>src/exp/exp0</kbd>. Also, we compute the each vairant of mixed cover corresponding to each FD cover using code at <kbd>src/exp/exp2</kbd>. Finally, we reocrd all results and make comparison between mixed covers and FD covers on savings.
-> 1. Impact of FD covers on computing minimal keys
->> In this experiment, we determine the time required for computing the set of minimal keys given different FD covers. The state-of-the-art algorithm to compute the set of minimal keys is worst-case exponential but linear in the output, as proposed by Osborne. You can run the code in <kbd>src/exp/exp1</kbd>.
-> 2. Computing mixed covers
->> This experiment computes the mixed variants of given FD covers, for all types of covers we consider. In addition, we record several statistics. The source code for this experiment can be found in <kbd>src/exp/exp2</kbd>.
-> 3. Runtime analysis for FD covers and mixed covers
+> 2. What time does it take to compute these covers?
 >> In this part, we analyze the overhead of computing FD covers and mixed covers. To reproduce the results in our paper, please run the code at <kbd>src/exp/RuntimeAnalysisExp</kbd>.
-> 4. Performance tests under updates on non-normalized schemata
->> In this experiment, we investigate the update performance for different FD covers on schemata that have not been normalized. To reproduce the experiments, the code at <kbd>src/exp/exp4</kbd> can be run.
-> 5. Performance tests under updates on normalized sub-schemata
->> We study the update performance of different FD covers and mixed covers on sub-schemata resulting from lossless, dependency-preserving decompositions into Third Normal Form (3NF). Note that we limit the number of sub-schemata to at most 10. The code for running this experiment can be found in <kbd>src/exp/exp5</kbd>.
+> 3. What performance improvement do mixed covers achieve over FD covers on de-normalized and nor-malized databases?
+>> 3.1. Performance tests under updates on non-normalized schemata
+>>> In this experiment, we investigate the update performance for different FD covers on schemata that have not been normalized. To reproduce the experiments, the code at <kbd>src/exp/exp4</kbd> can be run.
+>> 3.2. Performance tests under updates on normalized sub-schemata
+>>> We study the update performance of different FD covers and mixed covers on sub-schemata resulting from lossless, dependency-preserving decompositions into Third Normal Form (3NF). Note that we limit the number of sub-schemata to at most 10. The code for running this experiment can be found in <kbd>src/exp/exp5</kbd>.
 > 6. Impact on TPC-H Benchmark
 >> This experiment provides insight on the performance improvement mixed covers achieve over FD covers on the TPC-H benchmark. For that purpose, we report the performance of queries, refresh and insert operations under different workloads of constraints. In particular, mixed covers also have a significant benefit on query evaluation time. To reproduce this experiment, please run the code in <kbd>src/exp/TPCHWorkloadExp.java</kbd>.
 
