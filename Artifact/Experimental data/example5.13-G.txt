@@ -1,0 +1,138 @@
+R : [CAR-SERIAL#, LICENSE#, OWNER, DATE, TIME, TICKET#, OFFENSE]
+FD cover : original
+FD [CAR-SERIAL#] -> [LICENSE#]
+FD [LICENSE#] -> [CAR-SERIAL#, OWNER]
+FD [TICKET#] -> [CAR-SERIAL#, OWNER, DATE, TIME]
+FD [CAR-SERIAL#, DATE, TIME] -> [TICKET#, OFFENSE]
+################
+
+R : [CAR-SERIAL#, LICENSE#, OWNER, DATE, TIME, TICKET#, OFFENSE]
+FD cover : nonredundant
+FD [CAR-SERIAL#] -> [LICENSE#]
+FD [LICENSE#] -> [CAR-SERIAL#, OWNER]
+FD [TICKET#] -> [CAR-SERIAL#, OWNER, DATE, TIME]
+FD [CAR-SERIAL#, DATE, TIME] -> [TICKET#, OFFENSE]
+################
+
+R : [CAR-SERIAL#, LICENSE#, OWNER, DATE, TIME, TICKET#, OFFENSE]
+FD cover : reduced
+FD [CAR-SERIAL#] -> [LICENSE#]
+FD [LICENSE#] -> [CAR-SERIAL#, OWNER]
+FD [TICKET#] -> [CAR-SERIAL#, DATE, TIME]
+FD [CAR-SERIAL#, DATE, TIME] -> [TICKET#, OFFENSE]
+################
+
+R : [CAR-SERIAL#, LICENSE#, OWNER, DATE, TIME, TICKET#, OFFENSE]
+FD cover : canonical
+FD [CAR-SERIAL#] -> [LICENSE#]
+FD [LICENSE#] -> [CAR-SERIAL#]
+FD [LICENSE#] -> [OWNER]
+FD [TICKET#] -> [CAR-SERIAL#]
+FD [TICKET#] -> [DATE]
+FD [TICKET#] -> [TIME]
+FD [CAR-SERIAL#, DATE, TIME] -> [TICKET#]
+FD [CAR-SERIAL#, DATE, TIME] -> [OFFENSE]
+################
+
+R : [CAR-SERIAL#, LICENSE#, OWNER, DATE, TIME, TICKET#, OFFENSE]
+FD cover : minimal
+FD [CAR-SERIAL#] -> [LICENSE#]
+FD [LICENSE#] -> [CAR-SERIAL#, OWNER]
+FD [TICKET#] -> [CAR-SERIAL#, OWNER, DATE, TIME]
+FD [CAR-SERIAL#, DATE, TIME] -> [TICKET#, OFFENSE]
+################
+
+R : [CAR-SERIAL#, LICENSE#, OWNER, DATE, TIME, TICKET#, OFFENSE]
+FD cover : reduced minimal
+FD [CAR-SERIAL#] -> [LICENSE#]
+FD [LICENSE#] -> [CAR-SERIAL#, OWNER]
+FD [TICKET#] -> [CAR-SERIAL#, DATE, TIME]
+FD [CAR-SERIAL#, DATE, TIME] -> [TICKET#, OFFENSE]
+################
+
+R : [CAR-SERIAL#, LICENSE#, OWNER, DATE, TIME, TICKET#, OFFENSE]
+FD cover : optimal
+FD [DATE, LICENSE#, TIME] -> [TICKET#]
+FD [LICENSE#] -> [CAR-SERIAL#, OWNER]
+FD [TICKET#] -> [DATE, TIME, LICENSE#, OFFENSE]
+FD [CAR-SERIAL#] -> [LICENSE#]
+################
+
+R : [CAR-SERIAL#, LICENSE#, OWNER, DATE, TIME, TICKET#, OFFENSE]
+mixed cover : original keyfd
+keys : 
+Key [TICKET#]
+Key [CAR-SERIAL#, DATE, TIME]
+Key [LICENSE#, DATE, TIME]
+fds : 
+FD [CAR-SERIAL#] -> [LICENSE#]
+FD [LICENSE#] -> [CAR-SERIAL#, OWNER]
+################
+
+R : [CAR-SERIAL#, LICENSE#, OWNER, DATE, TIME, TICKET#, OFFENSE]
+mixed cover : nonredundant keyfd
+keys : 
+Key [TICKET#]
+Key [CAR-SERIAL#, DATE, TIME]
+Key [LICENSE#, DATE, TIME]
+fds : 
+FD [CAR-SERIAL#] -> [LICENSE#]
+FD [LICENSE#] -> [CAR-SERIAL#, OWNER]
+################
+
+R : [CAR-SERIAL#, LICENSE#, OWNER, DATE, TIME, TICKET#, OFFENSE]
+mixed cover : reduced keyfd
+keys : 
+Key [TICKET#]
+Key [CAR-SERIAL#, DATE, TIME]
+Key [LICENSE#, DATE, TIME]
+fds : 
+FD [CAR-SERIAL#] -> [LICENSE#]
+FD [LICENSE#] -> [CAR-SERIAL#, OWNER]
+################
+
+R : [CAR-SERIAL#, LICENSE#, OWNER, DATE, TIME, TICKET#, OFFENSE]
+mixed cover : canonical keyfd
+keys : 
+Key [TICKET#]
+Key [CAR-SERIAL#, DATE, TIME]
+Key [LICENSE#, DATE, TIME]
+fds : 
+FD [CAR-SERIAL#] -> [LICENSE#]
+FD [LICENSE#] -> [CAR-SERIAL#]
+FD [LICENSE#] -> [OWNER]
+################
+
+R : [CAR-SERIAL#, LICENSE#, OWNER, DATE, TIME, TICKET#, OFFENSE]
+mixed cover : minimal keyfd
+keys : 
+Key [TICKET#]
+Key [CAR-SERIAL#, DATE, TIME]
+Key [LICENSE#, DATE, TIME]
+fds : 
+FD [CAR-SERIAL#] -> [LICENSE#]
+FD [LICENSE#] -> [CAR-SERIAL#, OWNER]
+################
+
+R : [CAR-SERIAL#, LICENSE#, OWNER, DATE, TIME, TICKET#, OFFENSE]
+mixed cover : reduced minimal keyfd
+keys : 
+Key [TICKET#]
+Key [CAR-SERIAL#, DATE, TIME]
+Key [LICENSE#, DATE, TIME]
+fds : 
+FD [CAR-SERIAL#] -> [LICENSE#]
+FD [LICENSE#] -> [CAR-SERIAL#, OWNER]
+################
+
+R : [CAR-SERIAL#, LICENSE#, OWNER, DATE, TIME, TICKET#, OFFENSE]
+mixed cover : optimal keyfd
+keys : 
+Key [TICKET#]
+Key [DATE, LICENSE#, TIME]
+Key [CAR-SERIAL#, DATE, TIME]
+fds : 
+FD [LICENSE#] -> [CAR-SERIAL#, OWNER]
+FD [CAR-SERIAL#] -> [LICENSE#]
+################
+
