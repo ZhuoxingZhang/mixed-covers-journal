@@ -15,9 +15,9 @@ Our experiments are organized into seven sections. For each of them, you can run
 > 2. What time does it take to compute these covers?
 >> In this part, we analyze the overhead of computing FD covers and mixed covers. To reproduce the results in our paper, please run the code at <kbd>src/exp/RuntimeAnalysisExp</kbd>.
 > 3. What performance improvement do mixed covers achieve over FD covers on de-normalized and nor-malized databases?
->> 3.1. Performance tests under updates on non-normalized schemata
+> 3.1. Performance tests under updates on non-normalized schemata
 >>> In this experiment, we investigate the update performance for different FD covers on schemata that have not been normalized. To reproduce the experiments, the code at <kbd>src/exp/exp4</kbd> can be run.
->> 3.2. Performance tests under updates on normalized sub-schemata
+> 3.2. Performance tests under updates on normalized sub-schemata
 >>> We study the update performance of different FD covers and mixed covers on sub-schemata resulting from lossless, dependency-preserving decompositions into Third Normal Form (3NF). Note that we limit the number of sub-schemata to at most 10. The code for running this experiment can be found in <kbd>src/exp/exp5</kbd>.
 > 6. Impact on TPC-H Benchmark
 >> This experiment provides insight on the performance improvement mixed covers achieve over FD covers on the TPC-H benchmark. For that purpose, we report the performance of queries, refresh and insert operations under different workloads of constraints. In particular, mixed covers also have a significant benefit on query evaluation time. To reproduce this experiment, please run the code in <kbd>src/exp/TPCHWorkloadExp.java</kbd>.
