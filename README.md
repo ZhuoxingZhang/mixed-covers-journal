@@ -6,7 +6,7 @@
 >> We have used MySQL 8.0 as the underlying database workbench. Firstly, please create a database called "freeman". Afterwards, import the [datasets](https://drive.google.com/drive/folders/1RIO8hRNNwvTn0DU5tuazYWpsaIEtr7ch?usp=sharing) as MySQL databases by setting column names to 0,1,...,n-1 where n is the number of columns in a given dataset. In addition, please create a column named "id" as an auto_increment attribute for each table that will facilitate the removal of updated tuples quickly.
 >2. Functional dependencies (FDs)
 >> For each of the datasets, we compute all FD covers and their mixed variants. All FD covers/mixed covers can be found as separate json files in <kbd>Artifact/FD/</kbd>.
->3. JDK & JDBC
+>3. Software requirements
 >> Our code was developed in JAVA. Accordingly, please specify a JDK with version 8 or later. At the moment, we are using JDBC (version 8.0.26) as a connector to MySQL databases.
 # Experiments
 Our experiments are organized into seven sections. For each of them, you can run different code/scripts:
