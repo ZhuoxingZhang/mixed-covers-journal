@@ -10,8 +10,8 @@
 >> Our code was developed in JAVA. Accordingly, please specify a JDK with version 8 or later. At the moment, we are using JDBC (version 8.0.26) as a connector to MySQL databases.
 # Experiments
 Our experiments are organized into seven sections. For each of them, you can run different code/scripts:
-> 0. Computing FD covers
->> In this experiment, we compute several FD covers with given FDs as input. These FD covers include non-redundant, reduced, canonical, minimal, minimal-reduced, and optimal covers. In addition, we keep some statistics for each of these FD covers. You can run the code at <kbd>src/exp/exp0</kbd> on any mainstream IDE like eclipse or IDEA.
+> 0. What savings do notions of FD and mixed covers offer?
+>> In this experiment, we compute several FD covers with given FDs as input. These FD covers include non-redundant, reduced, canonical, minimal, minimal-reduced, and optimal covers. In addition, we keep some statistics for each of these FD covers. You can run the code at <kbd>src/exp/exp0</kbd>. Also, we compute the each vairant of mixed cover corresponding to each FD cover using code at <kbd>src/exp/exp2</kbd>. Finally, we reocrd all results and make comparison between mixed covers and FD covers on savings.
 > 1. Impact of FD covers on computing minimal keys
 >> In this experiment, we determine the time required for computing the set of minimal keys given different FD covers. The state-of-the-art algorithm to compute the set of minimal keys is worst-case exponential but linear in the output, as proposed by Osborne. You can run the code in <kbd>src/exp/exp1</kbd>.
 > 2. Computing mixed covers
