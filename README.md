@@ -1,5 +1,5 @@
 # Introduction
-&ensp;&ensp;&ensp;&ensp;This repository contains various artifacts, such as our full paper<kbd>Artifact/mixed-covers_vldb2024-revision-full.pdf</kbd>, source code<kbd>src/</kbd>, experimental results<kbd>Artifact/Experimental data/</kbd>, and other materials, that supplement our work on mixed covers.\
+&ensp;&ensp;&ensp;&ensp;This repository contains various artifacts, such as source code<kbd>src/</kbd>, experimental results<kbd>Artifact/Experimental data/</kbd>, and other materials, that supplement our work on mixed covers.\
 &ensp;&ensp;&ensp;&ensp;In the following sections, we describe how our experiments can be reproduced. For convenience, each of the experiments can be run as a script.
 # Preliminaries: Getting databases ready for experiments
 > 1. Import datasets as SQL databases
