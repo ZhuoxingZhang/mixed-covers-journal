@@ -9,7 +9,7 @@
 >3. Software requirements
 >> Our code was developed in JAVA. Accordingly, please specify a JDK with version 8 or later. At the moment, we are using JDBC (version 8.0.26) as a connector to MySQL databases.
 # Experiments
-Our experiments are organized into seven sections. For each of them, you can run different code/scripts:
+Our experiments are organized into five sections to answer our research questions. For each of them, you can run different code/scripts:
 ## 1. What savings do notions of FD and mixed covers offer?
 &ensp;&ensp;&ensp;&ensp;In this experiment, we compute several FD covers with given FDs as input. These FD covers include non-redundant, reduced, canonical, minimal, minimal-reduced, and optimal covers. In addition, we keep some statistics for each of these FD covers. You can run the code at <kbd>src/exp/exp0</kbd>. Also, we compute the each vairant of mixed cover corresponding to each FD cover using code at <kbd>src/exp/exp2</kbd>. Finally, we reocrd all results and make comparison between mixed covers and FD covers on savings.
 ## 2. What time does it take to compute these covers?
